@@ -1,10 +1,10 @@
-import { Schema, model, Document } from 'mongoose';
-import usuarioSchema from '../schemas/usuarioSchema';
-
+import { model, Document } from 'mongoose';
+import userSchema from '../schemas/usuarioSchema';
 
 interface IUser extends Document {
   name: string;
   email: string;
 }
 
-export default model<IUser>('User', usuarioSchema);
+const UserModel = model<IUser>('User', userSchema);
+export default UserModel;

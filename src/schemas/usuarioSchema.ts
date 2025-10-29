@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
-const usuarioSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: { 
       type: String, 
-      required: [true, 'El nombre es requerido']
+      required: [true, 'El nombre es requerido'],
+      maxlength: [50, 'El nombre no puede tener más de 50 caracteres']
     },
     email: { 
       type: String, 
@@ -15,4 +16,4 @@ const usuarioSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default usuarioSchema;
+export default userSchema;
