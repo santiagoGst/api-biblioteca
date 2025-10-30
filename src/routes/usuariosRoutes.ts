@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { createUser, deleteUser, getUserById, getUsers, updateUser } from '../controllers/usuariosController'
+import { validateId } from '../middlewares';
 
-const router = Router();
+const usersRouter = Router();
 
-router.get('/users/', getUsers);
-router.get('/users/:id', getUserById);
-router.post('/users/', createUser);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+usersRouter.get('/users/', getUsers);
+usersRouter.get('/users/:id', validateId, getUserById);
+usersRouter.post('/users/', createUser);
+usersRouter.put('/users/:id', validateId, updateUser);
+usersRouter.delete('/users/:id', validateId, deleteUser);
 
-export default router;
+
+export default usersRouter;

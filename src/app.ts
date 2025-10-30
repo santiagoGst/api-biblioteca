@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
-import usuariosRoutes from './routes/usuariosRoutes';
 import cors from 'cors';
 import { validateJson } from './middlewares';
+import { indexRouter } from './routes/indexRouter';
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(validateJson);
-app.use('/api', usuariosRoutes);
+app.use(indexRouter);
 
 
 app.use((req, res) => {

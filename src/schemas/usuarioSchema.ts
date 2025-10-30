@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema(
     email: { 
       type: String, 
       required: [true, 'El correo electrónico es requerido'], 
-      unique: [true, 'El correo electrónico ya se encuentra registrado']
+      unique: [true, 'El correo electrónico ya se encuentra registrado'],
+      match: [/.+\@.+\..+/, 'El formato del correo electrónico no es válido']
     }
   },
   { timestamps: true }
